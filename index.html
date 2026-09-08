@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sky - O Futuro Elétrico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+    <div class="logo">
+      <span>⚡ SKY</span> EV
+    </div>
+    <div class="header-actions">
+      <!-- Botão de Alternar Tema -->
+      <button class="theme-toggle" id="themeBtn" aria-label="Alternar Modo Claro e Escuro">
+        <span id="themeIcon">🌙</span>
+        <span id="themeText">Modo Escuro</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Sinta a Energia do Futuro</h1>
+    <p>Conheça os veículos 100% elétricos da SKY. Tecnologia de ponta, design arrojado e sustentabilidade.</p>
+    
+    <!-- Sinalização de Acessibilidade -->
+    <div class="deaf-accessibility-badge" title="Este site possui navegação 100% otimizada com feedbacks visuais">
+      <span>🧏‍♂️</span> Site Acessível para Surdos e Deficientes Auditivos
+    </div>
+  </section>
+
+  <!-- CAIXA INFORMATIVA DE ACESSIBILIDADE VISUAL -->
+  <div class="deaf-info-box">
+    <h3>👁️ Atendimento Visual e Suporte em LIBRAS</h3>
+    <p>Para melhor atende-lo(a), todas as nossas confirmações de agendamento e informações de carros são apresentadas com <strong>alertas visuais piscantes e texto na tela</strong>. Utilize o botão azul no canto da tela para tradução em LIBRAS!</p>
+  </div>
+
+  <!-- SEÇÃO DE FILTROS DE CATEGORIA -->
+  <section class="categories-container">
+    <h2 class="category-title">Escolha a sua Categoria</h2>
+    <div class="category-buttons">
+      <button class="cat-btn active" onclick="filterCars('todos', this)">🏎️ Todos</button>
+      <button class="cat-btn" onclick="filterCars('sedan', this)">🚘 Sedans</button>
+      <button class="cat-btn" onclick="filterCars('suv', this)">🚙 SUVs</button>
+      <button class="cat-btn" onclick="filterCars('esportivo', this)">⚡ Esportivos</button>
+      <button class="cat-btn" onclick="filterCars('compacto', this)">🚗 Compactos</button>
+      <button class="cat-btn" onclick="filterCars('pickup', this)">🛻 Pickups</button>
+    </div>
+  </section>
+
+  <!-- GRID DE MODELOS DE CARROS -->
+  <main class="cars-grid" id="carsGrid">
+    
+    <!-- CARRO 1: SEDAN -->
+    <article class="car-card" data-category="sedan">
+      <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="Carro Elétrico Sky Seal Sedan Azul" class="car-img">
+      <div class="car-content">
+        <span class="car-tag">Sedan Premium</span>
+        <h3 class="car-title">SKY Seal EV</h3>
+        <ul class="car-specs">
+          <li>🔋 Autonomia: 520 km</li>
+          <li>⚡ 0 a 100 km/h: 3.8s</li>
+          <li>🔕 Motor 100% Silencioso (Alerta Visual)</li>
+        </ul>
+        <div class="car-price">R$ 299.900</div>
+        <button class="btn-action" onclick="requestTestDrive('SKY Seal EV')">
+          <span>📅</span> Agendar Test Drive
+        </button>
+      </div>
+    </article>
+
+    <!-- CARRO 2: SUV -->
+    <article class="car-card" data-category="suv">
+      <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="SUV Elétrico Sky Tang Preto" class="car-img">
+      <div class="car-content">
+        <span class="car-tag">SUV 7 Lugares</span>
+        <h3 class="car-title">SKY Tang SUV</h3>
+        <ul class="car-specs">
+          <li>🔋 Autonomia: 530 km</li>
+          <li>👨‍👩‍👧‍👦 Capacidade: 7 Pessoas</li>
+          <li>🚨 Sensores de Ponto Cego Visuais</li>
+        </ul>
+        <div class="car-price">R$ 349.900</div>
+        <button class="btn-action" onclick="requestTestDrive('SKY Tang SUV')">
+          <span>📅</span> Agendar Test Drive
+        </button>
+      </div>
+    </article>
+
+    <!-- CARRO 3: ESPORTIVO -->
+    <article class="car-card" data-category="esportivo">
+      <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=600&q=80" alt="Carro Esportivo Sky Yangwang Magenta" class="car-img">
+      <div class="car-content">
+        <span class="car-tag">Super Esportivo</span>
+        <h3 class="car-title">SKY Vision U9</h3>
+        <ul class="car-specs">
+          <li>🔋 Autonomia: 450 km</li>
+          <li>🚀 0 a 100 km/h: 2.0s (1300 cv)</li>
+          <li>💡 Painel HUD com Iluminação total</li>
+        </ul>
+        <div class="car-price">R$ 890.000</div>
+        <button class="btn-action" onclick="requestTestDrive('SKY Vision U9')">
+          <span>📅</span> Agendar Test Drive
+        </button>
+      </div>
+    </article>
+
+    <!-- CARRO 4: COMPACTO -->
+    <article class="car-card" data-category="compacto">
+      <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" alt="Carro Compacto Sky Dolphin Urbano Verde" class="car-img">
+      <div class="car-content">
+        <span class="car-tag">Urbano / Compacto</span>
+        <h3 class="car-title">SKY Dolphin Mini</h3>
+        <ul class="car-specs">
+          <li>🔋 Autonomia: 405 km</li>
+          <li>🅿️ Estacionamento Automático</li>
+          <li>📱 Conectividade e Chave NFC</li>
+        </ul>
+        <div class="car-price">R$ 149.800</div>
+        <button class="btn-action" onclick="requestTestDrive('SKY Dolphin Mini')">
+          <span>📅</span> Agendar Test Drive
+        </button>
+      </div>
+    </article>
+
+    <!-- CARRO 5: PICKUP -->
+    <article class="car-card" data-category="pickup">
+      <img src="https://images.unsplash.com/photo-1559416523-140ddc3d238c?auto=format&fit=crop&w=600&q=80" alt="Pickup Robusta Sky Shark Híbrida" class="car-img">
+      <div class="car-content">
+        <span class="car-tag">Pickup Off-Road</span>
+        <h3 class="car-title">SKY Shark Pickup</h3>
+        <ul class="car-specs">
+          <li>🔋 Autonomia Combinada: 840 km</li>
+          <li>⛰️ Tração 4x4 Inteligente</li>
+          <li>🛠️ Gerador de Energia Externo (V2L)</li>
+        </ul>
+        <div class="car-price">R$ 329.000</div>
+        <button class="btn-action" onclick="requestTestDrive('SKY Shark Pickup')">
+          <span>📅</span> Agendar Test Drive
+        </button>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- POPUP/TOAST DE NOTIFICAÇÃO VISUAL -->
+  <div id="visualToast" class="visual-toast" role="alert" aria-live="assertive">
+    <span style="font-size: 1.5rem;">✅</span>
+    <div>
+      <strong style="color: var(--primary); display: block;" id="toastTitle">Solicitação Confirmada!</strong>
+      <span id="toastMessage">Sua mensagem foi recebida com sucesso.</span>
+    </div>
+  </div>
+
+  <!-- WIDGET DE LIBRAS -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- SCRIPT JS PRINCIPAL -->
+  <script src="script.js"></script>
+</body>
+</html>
