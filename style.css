@@ -1,0 +1,337 @@
+/* ==========================================
+   1. VARIÁVEIS DE CORES & TEMAS (Modo Claro/Escuro)
+   ========================================== */
+:root {
+  /* Tema Escuro (Padrão) */
+  --bg-color: #0b0f19;
+  --card-bg: #161f33;
+  --text-color: #f0f4f8;
+  --text-muted: #a0aec0;
+  
+  /* Cores Vibrantes */
+  --primary: #00f0ff; /* Ciano Elétrico */
+  --secondary: #ff007f; /* Magenta Neon */
+  --accent: #7000ff; /* Roxo Neon */
+  
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] {
+  /* Tema Claro */
+  --bg-color: #f4f7fb;
+  --card-bg: #ffffff;
+  --text-color: #0f172a;
+  --text-muted: #475569;
+  
+  --primary: #0066ff; /* Azul Vibrante */
+  --secondary: #d9006c; /* Magenta Profundo */
+  --accent: #6200ee;
+  
+  --border-color: rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   2. ESTILOS GERAIS & RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding-bottom: 60px;
+}
+
+/* Accessibility Focus Outline */
+a:focus, button:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   3. CABEÇALHO & NAVEGAÇÃO
+   ========================================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5%;
+  background-color: var(--card-bg);
+  border-bottom: 2px solid var(--primary);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Botão de Modo Claro/Escuro */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+/* ==========================================
+   4. HERO / BANNER PRINCIPAL
+   ========================================== */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 127, 0.1));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Alerta de Acessibilidade Visual */
+.deaf-accessibility-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--secondary);
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  font-weight: bold;
+}
+
+/* ==========================================
+   5. FILTROS DE CATEGORIA
+   ========================================== */
+.categories-container {
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+.category-title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cat-btn {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cat-btn.active, .cat-btn:hover {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+/* ==========================================
+   6. GRID DE CARROS (MODELOS)
+   ========================================== */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 5% 4rem 5%;
+}
+
+.car-card {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.car-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.car-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #2a2a2a;
+}
+
+.car-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-tag {
+  align-self: flex-start;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.car-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.car-specs {
+  list-style: none;
+  margin: 1rem 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.car-specs li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.car-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.btn-action {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-action:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================
+   7. RECURSOS DE ACESSIBILIDADE PARA SURDOS
+   ========================================== */
+.visual-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--card-bg);
+  border-left: 6px solid var(--primary);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: none;
+  align-items: center;
+  gap: 12px;
+  z-index: 1000;
+  animation: slideIn 0.3s forwards;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.visual-toast.show {
+  display: flex;
+}
+
+.deaf-info-box {
+  margin: 2rem 5%;
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px dashed var(--primary);
+  border-radius: 10px;
+}
+
+.deaf-info-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  header { flex-direction: column; gap: 15px; text-align: center; }
+}
